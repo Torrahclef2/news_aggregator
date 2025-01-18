@@ -45,15 +45,6 @@ user preferences (selected sources, categories, authors).
 <br>
 
 
-
-
-<b>Parameter	Type	        Description	                                                     Example Value</b>
-  query	        String	        Search term to filter articles by title or description.	          AI
-  source	    String	        Filter articles by source (e.g., newsapi, nyt, guardian).	      nyt
-  from	        DateTime	    Filter articles published after this date (ISO 8601 format).	  2025-01-01T00:00:00Z
-  to	        DateTime	    Filter articles published before this date (ISO 8601 format).	  2025-01-16T23:59:59Z
-
-
 <b>API Example Requests</b>
 a. Search Articles with a Keyword
 
