@@ -13,6 +13,20 @@ return [
     | a conventional file to locate the various service credentials.
     |
     */
+    'newsapi' => [
+    'key' => env('NEWSAPI_KEY'),
+],
+
+'services.newsapi.key'=>[
+    'apiKey' => env('NEWSAPI_KEY'),
+    // 'country' => $country,
+],
+
+
+'services.guardian.api_key'=>[
+    'apiKey'=>env('GUARDIAN_API_KEY')
+],
+
 
     'postmark' => [
         'token' => env('POSTMARK_TOKEN'),
