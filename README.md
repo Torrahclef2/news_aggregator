@@ -1,66 +1,86 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<p> Backend functionality for a news aggregator website that pulls articles from various sources and serves them to the frontend application.</p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+<b>Requirements:</b>
+<br>
+1. Data aggregation and storage: Implement a backend system that fetches articles from selected data sources
+(choose at least 3 from the provided list) and stores them locally in a database. Ensure that the data is regularly
+updated from the live data sources.
+2. API endpoints: Create API endpoints for the frontend application to interact with the backend. These endpoints
+should allow the frontend to retrieve articles based on search queries, filtering criteria (date, category, source), and
+user preferences (selected sources, categories, authors).
 
-## About Laravel
+<br>
+<b>Data Sources That Can Be Used (Choose At Least 3)</b>
+<br>
+¥ NewsAPI: This is a comprehensive API that allows developers to access articles from more than 70,000 news
+sources, including major newspapers, magazines, and blogs. The API provides access to articles in various
+languages and categories, and it supports search and filtering
+} OpenNews: This API provides access to a wide range of news content from various sources, including
+newspapers, magazines, and blogs. It allows developers to retrieve articles based on keywords, categories,
+and sources
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+{ NewsCred: The NewsCred API provides access to a wide range of news content from various sources, including
+newspapers, magazines, and blogs. The API allows developers to retrieve articles based on keywords,
+categories, and sources, as well as to search for articles by author, publication, and topic
+ The Guardian: This API allows developers to access articles from The Guardian newspaper, one of the most
+respected news sources in the world. The API provides access to articles in various categories and supports
+search and filtering
+u New York Times: This API allows developers to access articles from The New York Times, one of the most
+respected news sources in the world. The API provides access to articles in various categories and supports
+search and filtering
+v BBC News: This API allows developers to access news from BBC News, one of the most trusted news sources
+in the world. It provides access to articles in various categories and supports search and filtering
+ NewsAPI.org: This API provides access to news articles from thousands of sources, including news
+publications, blogs, and magazines. It allows developers to retrieve articles based on keywords, categories,
+and sources.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+1. Data aggregation and storage: Implement a backend system that fetches articles from selected data sources
+(choose at least 3 from the provided list) and stores them locally in a database. Ensure that the data is regularly
+updated from the live data sources.
+2. API endpoints: Create API endpoints for the frontend application to interact with the backend. These endpoints
+should allow the frontend to retrieve articles based on search queries, filtering criteria (date, category, source), and
+user preferences (selected sources, categories, authors).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+<br>
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
+<b>Parameter	Type	        Description	                                                     Example Value</b>
+  query	        String	        Search term to filter articles by title or description.	          AI
+  source	    String	        Filter articles by source (e.g., newsapi, nyt, guardian).	      nyt
+  from	        DateTime	    Filter articles published after this date (ISO 8601 format).	  2025-01-01T00:00:00Z
+  to	        DateTime	    Filter articles published before this date (ISO 8601 format).	  2025-01-16T23:59:59Z
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
 
-### Premium Partners
+<b>API Example Requests</b>
+a. Search Articles with a Keyword
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+GET /api/articles/search?query=AI
 
-## Contributing
+b. Search Articles by Source
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+GET /api/articles/search?source=nyt
 
-## Code of Conduct
+c. Search Articles by Date Range
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+GET /api/articles/search?from=2025-01-01T00:00:00Z&to=2025-01-16T23:59:59Z
 
-## Security Vulnerabilities
+d. Combine Multiple Filters
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+GET /api/articles/search?query=technology&source=guardian&from=2025-01-01T00:00:00Z
 
-## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+<b>Run the scheduler:</b>
+
+php artisan schedule:work
+
+<b>Test the Workflow</b>
+
+    Run Fetch Command:
+
+php artisan articles:fetch
+
